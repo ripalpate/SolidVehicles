@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SolidVehicles.Models
 {
-    class AirVehicles: IAirVehicle
+    abstract class AirVehicles: IAirVehicle
     {
         public int Wheels { get; set; } = 3;
         public int Doors { get; set; }
@@ -13,12 +13,10 @@ namespace SolidVehicles.Models
         public bool Winged { get; set; } = true;
         public string TransmissionType { get; set; } = "None";
         public double MaxAirSpeed { get; set; } = 309.0;
-        public string Name { get; set; }
         public double EngineVolume { get; set; }
 
-        public AirVehicles(string name, double engineVolume, int wheels, int doors, int passengerCapacity, bool winged, double maxAirSpeed)
+        public AirVehicles(double engineVolume, int wheels, int doors, int passengerCapacity, bool winged, double maxAirSpeed)
         {
-            Name = name;
             EngineVolume = engineVolume;
             Wheels = wheels;
             Doors = doors;
@@ -26,23 +24,22 @@ namespace SolidVehicles.Models
             Winged = winged;
             MaxAirSpeed = maxAirSpeed;
         }
-        public void Fly()
-        {
-            Console.WriteLine($"{Name} effortlessly glides through the clouds like a gleaming god of the Sun");
-        }
+        public virtual void Fly(){ }
 
         public void Start()
         {
-            Console.WriteLine($"{Name} start with ease and it can go to the maximum speed of {MaxAirSpeed}");
+            Console.WriteLine($"start with ease and it can go to the maximum speed of {MaxAirSpeed}");
         }
 
         public void Stop()
         {
-            Console.WriteLine($"{Name} stops on landing");
+            Console.WriteLine($"stops on landing");
         }
+
         public void PrintAirVehicleInfo()
         {
-            Console.WriteLine($"{Name} has {Wheels} wheels and {Doors} doors with {PassengerCapacity} passenger capacity.");
+            Console.WriteLine($"has {Wheels} wheels with {PassengerCapacity} passenger capacity.");
         }
+
     }
 }
