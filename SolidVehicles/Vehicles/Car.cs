@@ -13,6 +13,7 @@ namespace SolidVehicles.Vehicles
 
         public override void Drive()
         {
+            Console.WriteLine("-------------------------------------------------------------------------------");
             Console.WriteLine($"Car screams down the highway with maximum of {MaxLandSpeed} speed.");
         }
 

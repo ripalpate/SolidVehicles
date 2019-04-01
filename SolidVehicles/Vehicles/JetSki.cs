@@ -16,6 +16,7 @@ namespace SolidVehicles.Vehicles
 
         public override void Drive()
         {
+            Console.WriteLine("-------------------------------------------------------------------------------");
             Console.WriteLine($"Jetski zips through the waves with the greatest of ease");
         }
 
